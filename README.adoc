@@ -1,7 +1,7 @@
 = gpars-talk
 :linkattrs:
 
-Home for JEEConf 2017 talk link:http://jeeconf.com/program/gpars-unsung-hero-of-concurrency-in-practice/[GPars: Unsung Hero of Concurrency in Practice, window="_blank"]
+Home for JEEConf 2017 talk link:http://jeeconf.com/program/gpars-unsung-hero-of-concurrency-in-practice/[GPars: Unsung Hero of Concurrency in Practice, window="_blank"].
 
 When it comes to concurrency and parallelism, first things to appear in someone’s mind may be “Java Concurrency in Practice” by Brian Göetz, threads, java.util.concurrent, Fork-Join, parallel streams, reactive, Akka or MapReduce. When it comes to Groovy, first things to appear in someone’s mind may be Gradle, Grails, Spock, DSLs or scripting.
 
