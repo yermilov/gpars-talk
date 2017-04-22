@@ -9,6 +9,8 @@ Closure whereAmI = {
 whereAmI()
 
 withPool {
-    Closure whereAsyncAmI = whereAmI.asyncFun()
+    whereAmI.callAsync()
+
+    Closure whereAsyncAmI = whereAmI.async()
     whereAsyncAmI()
 }
