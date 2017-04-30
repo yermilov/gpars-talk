@@ -1,19 +1,22 @@
-# Eclipse
+# Eclipse #
 .classpath
 .project
 .metadata
 .settings/
 
-# Intellij
+# Intellij #
 .idea/
 out/
 *.iml
 *.iws
 *.ipr
 
-# Mac
+# Mac #
 .DS_Store
 
-# Gradle
+# Gradle #
 build/
 .gradle/
+
+# Configuration #
+twitter4j.properties
