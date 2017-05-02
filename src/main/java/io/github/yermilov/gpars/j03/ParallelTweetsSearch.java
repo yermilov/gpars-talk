@@ -1,10 +1,11 @@
 package io.github.yermilov.gpars.j03;
 
-import groovyx.gpars.ParallelEnhancer;
 import io.github.yermilov.gpars.utils.Twitter;
 import twitter4j.Status;
 
 import java.util.*;
+
+import static java.util.Comparator.comparingInt;
 
 public class ParallelTweetsSearch {
 
@@ -22,7 +23,7 @@ public class ParallelTweetsSearch {
 
                 .filter(tweet -> tweet.getText().toLowerCase().contains(topic.toLowerCase()))
                 .filter(tweet -> !tweet.isRetweet())
-                .max(Comparator.comparingInt(tweet -> tweet.getFavoriteCount() + tweet.getRetweetCount()));
+                .max(comparingInt(tweet -> tweet.getFavoriteCount() + tweet.getRetweetCount()));
 
         Map<String, Object> result = new HashMap<>();
         result.put("user", mostPopularTweet.get().getUser().getScreenName());
