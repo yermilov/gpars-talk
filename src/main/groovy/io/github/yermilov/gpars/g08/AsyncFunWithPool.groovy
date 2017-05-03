@@ -5,24 +5,29 @@ import io.github.yermilov.gpars.utils.Twitter
 
 import static groovyx.gpars.GParsPool.withPool
 
+def twitter = new Twitter()
+
 withPool {
-    Closure requestFun = { ->
-        'junit'
-    }.asyncFun()
+    Closure fetchLatestTweets = twitter.&fetchLatestTweets.asyncFun()
 
-    Closure countFun = { ->
-        100
-    }.asyncFun()
+    Closure determineTopic = topics.&determineTopic.asyncFun()
 
-    Closure requestTweets = { String request, int count ->
-        new Twitter().search(request, count)
-    }.asyncFun()
+    Closure aggregateTopics = topics.&aggregateTopics.asyncFun()
 
-    Promise tweets = requestTweets(requestFun(), countFun())
+    Closure fetchNewsAbout = news.&fetchNewsAbout.asyncFun()
 
-    tweets.then { Collection result ->
-        result.size()
-    }.then { int size ->
-        println size
+    Closure filterMostImportant = news.&filterMostImportant.asyncFun()
+
+
+    Promise topics = determineTopic(fetchLatestTweets)
+
+    Promise aggregatedTopics = topics.get().inject({ t1, t2 -> aggregateTopics(t1, t2) })
+
+    aggregatedTopics.then {
+        fetchNewsAbout(it)
+    }.then {
+        filterMostImportant(it)
+    }.then {
+        println it
     }.join()
 }
