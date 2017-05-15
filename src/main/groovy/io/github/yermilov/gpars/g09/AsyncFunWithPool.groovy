@@ -19,6 +19,7 @@ withPool {
     Closure filterMostImportant = news.&filterMostImportant.asyncFun()
 
 
+
     Promise topics = determineTopic(fetchLatestTweets)
 
     Promise aggregatedTopics = topics.get().inject({ t1, t2 -> aggregateTopics(t1, t2) })

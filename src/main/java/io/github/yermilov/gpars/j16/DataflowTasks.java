@@ -1,7 +1,6 @@
 package io.github.yermilov.gpars.j16;
 
 import groovyx.gpars.dataflow.DataflowVariable;
-import groovyx.gpars.group.DefaultPGroup;
 
 import static groovyx.gpars.dataflow.Dataflow.task;
 
@@ -20,9 +19,9 @@ public class DataflowTasks {
             }
         });
 
-        task(() -> retweets.bind(twitter.numberOfRetweets(article)));
-
-        task(() -> facebookLikes.bind(facebook.numberofLikes(article)));
+//        task(() -> retweets.bind(twitter.numberOfRetweets(article)));
+//
+//        task(() -> facebookLikes.bind(facebook.numberofLikes(article)));
 
         System.out.println(numberOfInteractions.getVal());
     }

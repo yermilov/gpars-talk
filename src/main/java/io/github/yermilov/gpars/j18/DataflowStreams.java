@@ -4,7 +4,6 @@ import groovyx.gpars.DataflowMessagingRunnable;
 import groovyx.gpars.dataflow.DataflowQueue;
 
 import static groovyx.gpars.dataflow.Dataflow.operator;
-import static groovyx.gpars.dataflow.Dataflow.task;
 import static java.util.Arrays.asList;
 
 public class DataflowStreams {
@@ -22,8 +21,8 @@ public class DataflowStreams {
             }
         });
 
-        task(() -> ALL_ARTICLES.forEach(article -> retweets.bind(twitter.numberOfRetweets(article))));
-
-        task(() -> ALL_ARTICLES.forEach(article -> facebookLikes.bind(facebook.numberofLikes(article))));
+//        task(() -> ALL_ARTICLES.forEach(article -> retweets.bind(twitter.numberOfRetweets(article))));
+//
+//        task(() -> ALL_ARTICLES.forEach(article -> facebookLikes.bind(facebook.numberofLikes(article))));
     }
 }
